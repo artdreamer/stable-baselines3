@@ -145,7 +145,7 @@ class A2C(OnPolicyAlgorithm):
             policy_loss = -(advantages * log_prob).mean()
 
             # Value loss using the TD(gae_lambda) target
-            value_loss = F.mse_loss((rollout_data.returns - 41755.313581239585) / 25571.112010694844, values)
+            value_loss = F.mse_loss(rollout_data.returns, values)
 
             # Entropy loss favor exploration
             if entropy is None:
